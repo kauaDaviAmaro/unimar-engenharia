@@ -1,14 +1,31 @@
+import os
+
 class User:
     # Criação do obj Para guardar os dados do usuário (e login)
     def __init__(self, login: str, password: str) -> None:
         self.login = login
         self.password = password
 
+
+
 class FileManager:
     # inicialização do Gerenciador
     def __init__(self, file_name: str = "user.txt") -> None:
         self.file_name = file_name
+        
+        if not self.file_exists(): 
+            self.create_file()
 
+    def delete_file(self) -> None:
+        os.remove(self.file_name)
+
+    def file_exists(self) -> bool:
+        return os.path.exists(self.file_name)
+
+    def create_file(self) -> None:
+        with open(self.file_name, "w") as file:
+            pass
+    
     # Guarda usuario ☻
     def register_user(self, user: User) -> None:
         with open(self.file_name, "a") as file:

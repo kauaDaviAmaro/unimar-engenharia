@@ -3,7 +3,6 @@ from project.classes.functionClass import User, FileManager
 
 # testa a classe User
 class TestUser(unittest.TestCase):
-
     def test_user_creation(self):
         # testa se não ha erro na crição usuario 
         user = User("kaua", "davi")
@@ -12,9 +11,8 @@ class TestUser(unittest.TestCase):
 
 # Testa a classe FileManager
 class TestFileManger(unittest.TestCase):
-
     # Verifica se o usuario foi salvo no arquivo
-    def test_user_register(self):
+    def test_user_register(self) -> None:
         user = User("kaua", "davi")
         self.assertEqual(FileManager().register_user(user=user), None)
 
@@ -33,9 +31,12 @@ class TestFileManger(unittest.TestCase):
         # Lista de usuarios 
         self.assertEqual(type(FileManager().list_users()), list)
 
-    # # Apaga o arquivo
-    # def tearDown(self) -> None:
-    #     # os.remove(FileManager().file_name)
-        
-    #     # Retorna para o setUp()
-    #     return super().tearDown()
+    # Verifica o display da lista de usuarios
+    def test_display_user(self) -> None:
+        # Lista de usuarios 
+        self.assertEqual(type(FileManager().display_user()), str)
+
+    # deletar o arquivo ao concluir os testes
+    def tearDown(self) -> None:
+        FileManager().delete_file()
+        return super().tearDown()

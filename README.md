@@ -1,3 +1,3 @@
 # unimar-engenharia
 
-# pequeno projeto o coverage e unittest no python
+# pequeno projeto para testar o coverage e unittest no python

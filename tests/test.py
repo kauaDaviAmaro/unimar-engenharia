@@ -23,9 +23,9 @@ class TestFileManger(unittest.TestCase):
         self.assertTrue(manager.file_exists())
 
     # Verifica se o usuario foi salvo no arquivo
-    # def test_user_register(self) -> None:
-    #     user = User("kaua", "davi")
-    #     self.assertEqual(manager.register_user(user=user), None)
+    def test_user_register(self) -> None:
+        user = User("jeff", "888")
+        self.assertEqual(manager.register_user(user=user), None)
 
     # verifica se o usuario esta no arquivo
     def test_user_login(self) -> None:

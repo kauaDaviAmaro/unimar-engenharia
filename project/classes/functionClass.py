@@ -7,7 +7,6 @@ class User:
         self.password = password
 
 
-
 class FileManager:
     # inicialização do Gerenciador
     def __init__(self, file_name: str = "user.txt") -> None:
@@ -24,7 +23,7 @@ class FileManager:
 
     def create_file(self) -> None:
         with open(self.file_name, "w") as file:
-            pass
+            file.write("")
     
     # Guarda usuario ☻
     def register_user(self, user: User) -> None:
